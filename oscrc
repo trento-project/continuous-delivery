@@ -124,4 +124,7 @@ apiurl = https://api.opensuse.org
 # pass =
 # Force using of keyring for this API
 # keyring = 1
+# These two next are required for the new 2FA to IBS
+# sshkey=id_rsa
+# credentials_mgr_class=osc.credentials.TransientCredentialsManager
 trusted_prj=openSUSE:Factory

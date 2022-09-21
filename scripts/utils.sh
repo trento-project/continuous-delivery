@@ -9,6 +9,15 @@ function check_user {
     sed -i "s/# pass =/pass = $OBS_PASS/g" $OSCRC_FILE    
   fi
 
+  if [ -n "$OBS_SSH_KEY" ]; then
+    mkdir -p "$HOME/.ssh"
+    chmod 700 "$HOME/.ssh"
+    printf "%s\n" "$OBS_SSH_KEY" > "$HOME/.ssh/id_rsa_obs"
+    chmod go-rwx "$HOME/.ssh/id_rsa_obs"
+    sed -i "s/# sshkey=id_rsa/sshkey=id_rsa_obs/g" "$OSCRC_FILE"
+    sed -i "s/# credentials_mgr_class=/credentials_mgr_class=/g" "$OSCRC_FILE"
+  fi
+
   # Check if the OSC_API_URL is set
   if [ -z $OSC_API_URL ]; then    
     return 0
