@@ -24,5 +24,13 @@ RUN zypper -n ar https://download.opensuse.org/repositories/openSUSE:/Tools/open
                       obs-service-download_files \
                       obs-service-node_modules
 
+ARG USER_NAME=osc
+ARG GROUP_NAME=$USER_NAME
+ARG UID=1000
+ARG GID=1000
+RUN groupadd -g $GID $GROUP_NAME && useradd -m -g $USER_NAME -u $UID $USER_NAME
+USER $USER_NAME
+ENV HOME /home/$USER_NAME
+
 COPY scripts /scripts
-COPY oscrc /root/.config/osc/oscrc
+COPY --chown=$UID:$GID oscrc $HOME/.config/osc/oscrc
