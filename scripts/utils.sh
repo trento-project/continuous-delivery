@@ -6,7 +6,7 @@ function check_user {
     return 1
   else
     sed -i "s/# user =/user = $OBS_USER/g" $OSCRC_FILE
-    sed -i "s/# pass =/pass = $OBS_PASS/g" $OSCRC_FILE    
+    sed -i "s/# pass =/pass = $OBS_PASS/g" $OSCRC_FILE
   fi
 
   if [ -n "$OBS_SSH_KEY" ]; then
