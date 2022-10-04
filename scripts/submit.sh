@@ -1,7 +1,7 @@
 #!/bin/bash
 source $(dirname $0)/utils.sh
 
-OSCRC_FILE=${OSCRC_FILE:=/root/.config/osc/oscrc}
+OSCRC_FILE=${OSCRC_FILE:=$HOME/.config/osc/oscrc}
 
 # Mandatory parameters set using env varialbes
 # OBS_USER, OBS user
