@@ -4,7 +4,7 @@ source $(dirname $0)/utils.sh
 
 TMP_FOLDER=/tmp
 DEST_FOLDER=/tmp/osc_project
-OSCRC_FILE=${OSCRC_FILE:=/root/.config/osc/oscrc}
+OSCRC_FILE=${OSCRC_FILE:=$HOME/.config/osc/oscrc}
 FOLDER=${FOLDER:=.}
 CHANGESAUTHOR=${CHANGESAUTHOR:=$(git -C $FOLDER log -1 --format='%ae')}
 
