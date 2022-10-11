@@ -11,7 +11,7 @@ RUN zypper -n ar https://download.opensuse.org/repositories/openSUSE:/Tools/15.4
     zypper -n ar https://download.opensuse.org/repositories/OBS:/Server:/Unstable/15.4/OBS:Server:Unstable.repo && \
     zypper -n ar https://download.opensuse.org/repositories/devel:/languages:/erlang/15.4/devel:languages:erlang.repo && \
     zypper -n --gpg-auto-import-keys refresh --force --services && \
-    zypper install -y sudo osc tar gzip build vim elixir wget unzip \
+    zypper install -y sudo osc tar gzip build wget unzip vim go elixir \
                       obs-service-obs_scm \
                       obs-service-obs_scm-common \
                       obs-service-recompress \
