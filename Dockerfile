@@ -6,7 +6,6 @@ ENV LC_ALL C.UTF-8
 # install
 RUN zypper -n ar https://download.opensuse.org/repositories/openSUSE:/Tools/15.4/openSUSE:Tools.repo && \
     zypper -n ar https://download.opensuse.org/repositories/devel:/languages:/go/15.4/devel:languages:go.repo && \
-    zypper -n ar https://download.opensuse.org/repositories/OBS:/Server:/Unstable/15.4/OBS:Server:Unstable.repo && \
     zypper -n ar https://download.opensuse.org/repositories/devel:/languages:/erlang/15.4/devel:languages:erlang.repo && \
     zypper -n --gpg-auto-import-keys refresh --force --services && \
     zypper install -y build \
