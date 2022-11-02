@@ -38,6 +38,7 @@ ARG GID=1000
 RUN groupadd -g $GID $GROUP_NAME && useradd -m -g $USER_NAME -u $UID $USER_NAME
 USER $USER_NAME
 ENV HOME /home/$USER_NAME
+WORKDIR $HOME
 
 COPY scripts /scripts
 COPY --chown=$UID:$GID oscrc $HOME/.config/osc/oscrc
