@@ -35,7 +35,9 @@ ARG USER_NAME=osc
 ARG GROUP_NAME=$USER_NAME
 ARG UID=1000
 ARG GID=1000
-RUN groupadd -g $GID $GROUP_NAME && useradd -m -g $USER_NAME -u $UID $USER_NAME
+RUN groupadd -g $GID $GROUP_NAME && \
+    useradd -m -g $USER_NAME -u $UID $USER_NAME && \
+    echo "%$GROUP_NAME ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
 USER $USER_NAME
 ENV HOME /home/$USER_NAME
 WORKDIR $HOME
