@@ -1,5 +1,14 @@
 name: Build & push container image to GH packages
-on: [push]
+on:
+  push:
+    tags-ignore:
+      - "*"
+    branches:
+      - "main"
+  pull_request:
+  release:
+    types: [published]
+  workflow_dispatch:
 
 env:
   REGISTRY: ghcr.io
@@ -8,6 +17,7 @@ env:
 jobs:
   build-and-push-image:
     runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main' || github.event_name == 'release'
     permissions:
       contents: read
       packages: write
