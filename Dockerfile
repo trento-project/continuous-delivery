@@ -10,7 +10,7 @@ RUN zypper -n ar https://download.opensuse.org/repositories/openSUSE:/Tools/15.4
     zypper -n --gpg-auto-import-keys refresh --force --services && \
     zypper install -y build \
                       elixir \
-                      go \
+                      go1.18 \
                       gzip \
                       helm \
                       obs-service-obs_scm \
