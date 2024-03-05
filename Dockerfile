@@ -29,7 +29,8 @@ RUN zypper -n ar https://download.opensuse.org/repositories/openSUSE:/Tools/15.4
                       unzip \
                       vim \
                       yq \
-                      wget
+                      wget \
+                      make
 
 ARG USER_NAME=osc
 ARG GROUP_NAME=$USER_NAME
