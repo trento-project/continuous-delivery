@@ -30,7 +30,8 @@ RUN zypper -n ar https://download.opensuse.org/repositories/openSUSE:/Tools/15.4
                       vim \
                       yq \
                       wget \
-                      make
+                      make \
+                      openssh
 
 ARG USER_NAME=osc
 ARG GROUP_NAME=$USER_NAME
