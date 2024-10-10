@@ -12,20 +12,20 @@ tool).
 In order to use this delivery process some conditions are required:
 
 1. OBS project and package must already exist. The process won't create a package.
-2. _.spec_ and _.changes_ file should be added to the git project or a 
+2. _.spec_ and _.changes_ file should be added to the git project or a
    [OBS _service file](https://en.opensuse.org/openSUSE:Build_Service_Concept_SourceService) should be used. Otherwise current
    _.spec_ and _.changes_ from the OBS package will be used, but this is not recommended if you want a real CD pipeline.
-3. In case the git repository owns a _.spec_ and the OBS package uses a *_service* file integration, the _.spec_ file will be copied
-   before the service update, applying the changes. The RPM version will still be calculated by the OBS service. 
+3. In case the git repository owns a _.spec_ and the OBS package uses a __service_ file integration, the _.spec_ file will be copied
+   before the service update, applying the changes. The RPM version will still be calculated by the OBS service.
 4. Build process is not currently executed, so make sure the project builds
 locally (this feature might be added in the future).
-5. Package version will be obtained from "Version: " in the _.spec_ file or calculated in case of the *_service* file is in use.
+5. Package version will be obtained from "Version: " in the _.spec_ file or calculated in case of the __service_ file is in use.
 
 ## How to use
 
 These steps must be followed to run the delivery operation:
 
-1. Pull the docker image. The image is currently stored in: https://github.com/trento-project/continuous-delivery/pkgs/container/continuous-delivery
+1. Pull the docker image. The image is currently stored in: <https://github.com/trento-project/continuous-delivery/pkgs/container/continuous-delivery>
 
 ```bash
 docker pull ghcr.io/trento-project/continuous-delivery:main
@@ -57,20 +57,24 @@ docker run -t -v "$(pwd):/package" -e OBS_USER=$OBS_USER -e OBS_PASS=$OBS_PASS -
 docker run -t -v "$(pwd):/package" -e OBS_USER=$OBS_USER -e OBS_PASS=$OBS_PASS -e OBS_PROJECT=$OBS_PROJECT -e PACKAGE_NAME=$PACKAGE_NAME ghcr.io/trento-project/continuous-delivery:main /bin/bash -c "cd /package;/scripts/submit.sh"
 ```
 
-*FOLDER* variable must match with the path used in the volume creation and last
+_FOLDER_ variable must match with the path used in the volume creation and last
 command execution
-
-
-## Example
-
-In [.travis.yml](.travis.yml.example) you can find an example travis file that
-might be used to in your project.
-
-For that, you must set your OBS user and password in the travis project settings.
-
-![travis settings](img/travis_settings.png)
 
 ## How to contribute
 
 To contribute the project just update the project code and create a pull request.
 After merging the code the new docker image will be created automatically.
+
+## License
+
+Copyright 2024 SUSE LLC
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this code repository except in compliance with the License.
+You may obtain a copy of the License at: <http://www.apache.org/licenses/LICENSE-2.0>
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
