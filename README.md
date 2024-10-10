@@ -25,10 +25,10 @@ locally (this feature might be added in the future).
 
 These steps must be followed to run the delivery operation:
 
-1. Pull the docker image. The image is currently stored in: https://cloud.docker.com/u/shap/repository/docker/shap/continuous_deliver
+1. Pull the docker image. The image is currently stored in: https://github.com/trento-project/continuous-delivery/pkgs/container/continuous-delivery
 
 ```bash
-docker pull shap/continuous_deliver:latest
+docker pull ghcr.io/trento-project/continuous-delivery:main
 ```
 
 2. Set the environment variables. This is not mandatory but it will facilitate
@@ -53,8 +53,8 @@ export CHANGESAUTHOR=myemail@company.com # email of the changes author.
 3. Run the docker container
 
 ```bash
-docker run -t -v "$(pwd):/package" -e OBS_USER=$OBS_USER -e OBS_PASS=$OBS_PASS -e OBS_PROJECT=$OBS_PROJECT -e PACKAGE_NAME=$PACKAGE_NAME shap/continuous_deliver /bin/bash -c "cd /package;/scripts/upload.sh"
-docker run -t -v "$(pwd):/package" -e OBS_USER=$OBS_USER -e OBS_PASS=$OBS_PASS -e OBS_PROJECT=$OBS_PROJECT -e PACKAGE_NAME=$PACKAGE_NAME shap/continuous_deliver /bin/bash -c "cd /package;/scripts/submit.sh"
+docker run -t -v "$(pwd):/package" -e OBS_USER=$OBS_USER -e OBS_PASS=$OBS_PASS -e OBS_PROJECT=$OBS_PROJECT -e PACKAGE_NAME=$PACKAGE_NAME ghcr.io/trento-project/continuous-delivery:main /bin/bash -c "cd /package;/scripts/upload.sh"
+docker run -t -v "$(pwd):/package" -e OBS_USER=$OBS_USER -e OBS_PASS=$OBS_PASS -e OBS_PROJECT=$OBS_PROJECT -e PACKAGE_NAME=$PACKAGE_NAME ghcr.io/trento-project/continuous-delivery:main /bin/bash -c "cd /package;/scripts/submit.sh"
 ```
 
 *FOLDER* variable must match with the path used in the volume creation and last
