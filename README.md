@@ -31,8 +31,7 @@ These steps must be followed to run the delivery operation:
 docker pull ghcr.io/trento-project/continuous-delivery:main
 ```
 
-2. Set the environment variables. This is not mandatory but it will facilitate
-things:
+2. Most scripts provided assume the presence of the following environment variables:
 
 ```bash
 export OBS_USER=my-user # my obs user name
@@ -41,7 +40,7 @@ export OBS_PROJECT=my-project # obs project
 export PACKAGE_NAME=my-package # package name in obs project
 ```
 
-Here other optional parameters:
+Here other optional ones:
 
 ```bash
 export FOLDER=/package # used folder inside the docker container where our code is located

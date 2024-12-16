@@ -45,4 +45,5 @@ ENV HOME=/home/$USER_NAME
 WORKDIR $HOME
 
 COPY scripts /scripts
+COPY --chown:0:0 oscrc /root/.config/osc/oscr
 COPY --chown=$UID:$GID oscrc $HOME/.config/osc/oscrc
