@@ -2,7 +2,7 @@ name: Build & push container image to GH packages
 on:
   push:
     branches:
-      - "main"
+      - "**"
     tags:
       - "**"
   pull_request:
