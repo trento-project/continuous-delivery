@@ -24,6 +24,7 @@ zypper install -y build \
                   obs-service-tar_scm \
                   obs-service-download_files \
                   obs-service-node_modules \
+                  obs-scm-bridge \
                   osc \
                   sudo \
                   tar \
