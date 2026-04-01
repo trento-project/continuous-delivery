@@ -6,6 +6,8 @@ ENV LC_ALL=C.UTF-8
 
 RUN <<EOF
 set -ex
+# We need this repo only because of `obs-service-regex_replace`
+zypper -n ar -p 101 -f https://download.opensuse.org/repositories/openSUSE:/Tools/15.6/openSUSE:Tools.repo
 zypper install -y osc \
                   obs-scm-bridge \
                   obs-service-tar_scm \
