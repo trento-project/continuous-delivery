@@ -2,9 +2,7 @@ name: Build & push container image to GH packages
 on:
   push:
     branches:
-      - "**"
-    tags:
-      - "**"
+      - main
   pull_request:
   workflow_dispatch:
 
