@@ -1,4 +1,6 @@
-FROM opensuse/leap:15.6
+FROM opensuse/tumbleweed@sha256:e1e1a652a28384a3cae36938a84371de5e1c3d3a6d811d14caa1dd758366a934 # 01 Apr 2026
+# XXX: A key dependency (obs-service-elixir_mix_deps) is missing from the standard Tools repo. Until it's included, we switch to Tumbleweed. After inclusion, we have to revert to Leap base image.
+# FROM opensuse/leap:15.6
 
 ENV LANG=C.UTF-8
 ENV LC_ALL=C.UTF-8
@@ -24,6 +26,7 @@ zypper install -y build \
                   obs-service-tar_scm \
                   obs-service-download_files \
                   obs-service-node_modules \
+                  obs-service-elixir_mix_deps \
                   obs-scm-bridge \
                   osc \
                   sudo \
