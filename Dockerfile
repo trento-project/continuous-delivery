@@ -18,7 +18,7 @@ zypper install -y osc \
                   obs-service-node_modules \
                   obs-service-elixir_mix_deps \
                   obs-service-regex_replace \
-                  replace_using_package_version \
+                  obs-service-replace_using_package_version \
                   openssh \
                   tar \
                   unzip \
