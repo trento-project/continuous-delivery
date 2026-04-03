@@ -10,6 +10,23 @@ set -ex
 zypper -n ar -p 101 -f https://download.opensuse.org/repositories/openSUSE:/Tools/openSUSE_Tumbleweed/openSUSE:Tools.repo
 zypper -n --gpg-auto-import-keys refresh --force --services
 
+# osc -- needed everywhere
+# obs-scm-bridge -- allows osc to clone git repos, used everywhere
+# obs-service-tar_scm -- used everywhere
+# obs-service-recompress -- used in every RPM repo
+# obs-service-set_version -- used in every RPM repo
+# obs-service-node_moduels -- used in repos having NPM deps (WEB)
+# obs-service-elixir_mix_deps -- used in repos having Elixir deps (WEB, WANDA)
+# obs-service-regex_replace -- Used only in WEB for GTM setup
+# obs-service-replace_using_package_version -- Used in Dockerfile repos
+# openssh -- needed for accessing git repos
+# make -- used in CHARTS
+# helm -- used in CHARTS
+# tar -- used in CHARTS
+# yq -- used in CHARTS
+# unzip -- Not known to be used, but good as debug tool
+# vim -- Not known to be used, but good as debug tool
+# wget -- Not known to be used, but good as debug tool
 zypper install -y osc \
                   obs-scm-bridge \
                   obs-service-tar_scm \
@@ -20,10 +37,12 @@ zypper install -y osc \
                   obs-service-regex_replace \
                   obs-service-replace_using_package_version \
                   openssh \
+                  make \
+                  helm \
                   tar \
+                  yq \
                   unzip \
                   vim \
-                  yq \
                   wget
 EOF
 
