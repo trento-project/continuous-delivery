@@ -19,7 +19,7 @@ zypper -n --gpg-auto-import-keys refresh --force --services
 # obs-service-elixir_mix_deps -- used in repos having Elixir deps (WEB, WANDA)
 # obs-service-regex_replace -- Used only in WEB for GTM setup
 # obs-service-replace_using_package_version -- Used in Dockerfile repos
-# obs-service-cargo-vendor -- Used in Wanda for vendoring rust deps
+# obs-service-cargo -- Used in Wanda for vendoring rust deps
 # openssh -- needed for accessing git repos
 # make -- used in CHARTS
 # helm -- used in CHARTS
@@ -37,7 +37,7 @@ zypper install -y osc \
                   obs-service-elixir_mix_deps \
                   obs-service-regex_replace \
                   obs-service-replace_using_package_version \
-                  obs-service-cargo-vendor \
+                  obs-service-cargo \
                   openssh \
                   make \
                   helm \
