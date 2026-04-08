@@ -28,7 +28,7 @@ zypper -n --gpg-auto-import-keys refresh --force --services
 # unzip -- Not known to be used, but good as debug tool
 # vim -- Not known to be used, but good as debug tool
 # wget -- Not known to be used, but good as debug tool
-zypper install -y osc \
+zypper -n install --no-recommends osc \
                   obs-scm-bridge \
                   obs-service-tar_scm \
                   obs-service-recompress \
@@ -46,6 +46,9 @@ zypper install -y osc \
                   unzip \
                   vim \
                   wget
+
+zypper -n clean -a
+rm -rf /var/log/zypp /var/log/zypper.log
 EOF
 
 ARG USER_NAME=osc
