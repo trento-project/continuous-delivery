@@ -19,6 +19,7 @@ zypper -n --gpg-auto-import-keys refresh --force --services
 # obs-service-elixir_mix_deps -- used in repos having Elixir deps (WEB, WANDA)
 # obs-service-regex_replace -- Used only in WEB for GTM setup
 # obs-service-replace_using_package_version -- Used in Dockerfile repos
+# obs-service-cargo -- Used in Wanda for vendoring rust deps
 # openssh -- needed for accessing git repos
 # make -- used in CHARTS
 # helm -- used in CHARTS
@@ -27,7 +28,7 @@ zypper -n --gpg-auto-import-keys refresh --force --services
 # unzip -- Not known to be used, but good as debug tool
 # vim -- Not known to be used, but good as debug tool
 # wget -- Not known to be used, but good as debug tool
-zypper install -y osc \
+zypper -n install --no-recommends osc \
                   obs-scm-bridge \
                   obs-service-tar_scm \
                   obs-service-recompress \
@@ -36,6 +37,7 @@ zypper install -y osc \
                   obs-service-elixir_mix_deps \
                   obs-service-regex_replace \
                   obs-service-replace_using_package_version \
+                  obs-service-cargo \
                   openssh \
                   make \
                   helm \
@@ -44,6 +46,9 @@ zypper install -y osc \
                   unzip \
                   vim \
                   wget
+
+zypper -n clean -a
+rm -rf /var/log/zypp /var/log/zypper.log
 EOF
 
 ARG USER_NAME=osc
