@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# SPDX-FileCopyrightText: SUSE LLC
+# SPDX-License-Identifier: Apache-2.0
+
+
 function check_user {
   if [ -z $OBS_USER -o -z $OBS_PASS ]; then
     echo "OBS_USER or OBS_PASS not set..."
@@ -19,7 +23,7 @@ function check_user {
   fi
 
   # Check if the OSC_API_URL is set
-  if [ -z $OSC_API_URL ]; then    
+  if [ -z $OSC_API_URL ]; then
     return 0
   else
     sed -i "s|https://api.opensuse.org|$OSC_API_URL|g" $OSCRC_FILE
