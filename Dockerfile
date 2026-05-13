@@ -11,6 +11,9 @@ RUN <<EOF
 set -ex
 # We need this repo only because of `obs-service-regex_replace`
 zypper -n ar -p 101 -f https://download.opensuse.org/repositories/openSUSE:/Tools/openSUSE_Tumbleweed/openSUSE:Tools.repo
+# Until obs-service-vendor_helm is included into Tools repo, we add kkanchev's home project.
+# https://build.opensuse.org/requests/1350205
+zypper -n ar -p 105 -f https://download.opensuse.org/repositories/home:/kkanchev/openSUSE_Tumbleweed/home:kkanchev.repo
 zypper -n --gpg-auto-import-keys refresh --force --services
 
 # osc -- needed everywhere
@@ -23,15 +26,14 @@ zypper -n --gpg-auto-import-keys refresh --force --services
 # obs-service-regex_replace -- Used only in WEB for GTM setup
 # obs-service-replace_using_package_version -- Used in Dockerfile repos
 # obs-service-cargo -- Used in Wanda for vendoring Rust deps
-# obs-service-go_modules -- Used in Agent for vendoring Go deps
+# obs-service-go_modules -- used in Agent for vendoring Go deps
+# obs-service-vendor_helm -- used in our Helm charts
 # openssh -- needed for accessing git repos
-# make -- used in CHARTS
-# helm -- used in CHARTS
-# tar -- used in CHARTS
-# yq -- used in CHARTS
+# yq -- Not known to be used, but good as debug tool
 # unzip -- Not known to be used, but good as debug tool
 # vim -- Not known to be used, but good as debug tool
 # wget -- Not known to be used, but good as debug tool
+# make -- NOT USED ANYMORE, remove in next version (was used in CHARTS)
 zypper -n install --no-recommends osc \
                   obs-scm-bridge \
                   obs-service-tar_scm \
@@ -43,13 +45,12 @@ zypper -n install --no-recommends osc \
                   obs-service-replace_using_package_version \
                   obs-service-cargo \
                   obs-service-go_modules \
+                  obs-service-vendor_helm \
                   openssh \
-                  make \
-                  helm \
-                  tar \
                   yq \
                   unzip \
                   vim \
+                  make \
                   wget
 
 zypper -n clean -a
