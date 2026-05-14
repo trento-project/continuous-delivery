@@ -3,7 +3,6 @@
 # SPDX-FileCopyrightText: SUSE LLC
 # SPDX-License-Identifier: Apache-2.0
 
-
 function check_user {
   if [ -z $OBS_USER -o -z $OBS_PASS ]; then
     echo "OBS_USER or OBS_PASS not set..."
