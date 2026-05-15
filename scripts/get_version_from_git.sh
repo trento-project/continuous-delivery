@@ -1,4 +1,8 @@
 #!/usr/bin/env bash
+
+# SPDX-FileCopyrightText: SUSE LLC
+# SPDX-License-Identifier: Apache-2.0
+
 set -eo pipefail
 
 # https://semver.org/#is-there-a-suggested-regular-expression-regex-to-check-a-semver-string

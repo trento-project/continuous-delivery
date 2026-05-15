@@ -1,4 +1,8 @@
 #!/bin/bash
+
+# SPDX-FileCopyrightText: SUSE LLC
+# SPDX-License-Identifier: Apache-2.0
+
 source $(dirname $0)/utils.sh
 
 OSCRC_FILE=${OSCRC_FILE:=$HOME/.config/osc/oscrc}
